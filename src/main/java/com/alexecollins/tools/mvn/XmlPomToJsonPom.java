@@ -5,6 +5,8 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.apache.commons.io.FileUtils;
 import org.apache.maven.model.*;
+import org.codehaus.jackson.JsonGenerator;
+import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
@@ -32,6 +34,8 @@ public class XmlPomToJsonPom {
 
 			final ObjectMapper out = new ObjectMapper();
 			out.setSerializationInclusion(JsonSerialize.Inclusion.NON_DEFAULT);
+			out.configure(JsonGenerator.Feature.QUOTE_FIELD_NAMES, false);
+			out.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
 			out.getSerializationConfig().addMixInAnnotations(ConfigurationContainer.class, ConfigurationContainerMixIn.class);
 			out.getSerializationConfig().addMixInAnnotations(Dependency.class, DependencyMixIn.class);
 			out.getSerializationConfig().addMixInAnnotations(Plugin.class, PluginMixIn.class);
