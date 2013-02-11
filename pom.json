@@ -1,0 +1,33 @@
+{
+  "dependencies" : [ {
+    "groupId" : "com.fasterxml",
+    "artifactId" : "jackson-xml-databind",
+    "version" : "0.6.2"
+  }, {
+    "groupId" : "org.apache.maven",
+    "artifactId" : "maven-model",
+    "version" : "3.0.4"
+  }, {
+    "groupId" : "com.thoughtworks.xstream",
+    "artifactId" : "xstream",
+    "version" : "1.4.3"
+  }, {
+    "groupId" : "commons-io",
+    "artifactId" : "commons-io",
+    "version" : "2.4"
+  } ],
+  "modelVersion" : "4.0.0",
+  "groupId" : "com.alexecollins.tools",
+  "artifactId" : "mvsn",
+  "version" : "1.0-SNAPSHOT",
+  "build" : {
+    "plugins" : [ {
+      "configuration" : {
+        "source" : "1.5",
+        "target" : "1.5"
+      },
+      "artifactId" : "maven-compiler-plugin",
+      "version" : "2.5.1"
+    } ]
+  }
+}
