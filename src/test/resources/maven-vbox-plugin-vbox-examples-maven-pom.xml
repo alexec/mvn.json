@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>vbox-examples</artifactId>
+        <groupId>com.alexecollins.vbox</groupId>
+        <version>3.0.1-SNAPSHOT</version>
+        <relativePath>..</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+
+    <artifactId>maven-example</artifactId>
+    <name>Maven Example</name>
+
+    <profiles>
+        <profile>
+            <id>run-its</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.alexecollins.vbox</groupId>
+                        <artifactId>vbox-maven-plugin</artifactId>
+                        <version>3.0.1-SNAPSHOT</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>delete-definition</goal>
+                                    <goal>create-definition</goal>
+                                    <goal>patch-definition</goal>
+                                    <goal>provision</goal>
+                                    <goal>start</goal>
+                                    <goal>stop</goal>
+                                </goals>
+                                <configuration>
+                                    <name>app1.test</name>
+                                    <templateName>CentOS_6_3</templateName>
+                                    <patches>
+                                        <archPatch />
+                                        <predefinedPatch>
+                                            <name>CentOS_6_3--tomcat6</name>
+                                        </predefinedPatch>
+                                    </patches>
+                                    <names>app1.test</names>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
