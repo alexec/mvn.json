@@ -1,11 +1,11 @@
-package com.alexecollins.tools.mvn;
+package com.alexecollins.tools.mvn.mixins;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  * @author alexec (alex.e.c@gmail.com)
  */
-abstract class ConfigurationContainerMixIn {
+public abstract class ConfigurationContainerMixIn {
 	@JsonIgnore
 	abstract void setInherited( String inherited );
 
